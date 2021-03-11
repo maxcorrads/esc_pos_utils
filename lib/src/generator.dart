@@ -10,7 +10,6 @@ import 'dart:convert';
 import 'dart:typed_data' show Uint8List;
 import 'package:hex/hex.dart';
 import 'package:image/image.dart';
-import 'package:gbk_codec/gbk_codec.dart';
 import 'package:esc_pos_utils/esc_pos_utils.dart';
 import 'enums.dart';
 import 'commands.dart';
@@ -73,11 +72,11 @@ class Generator {
         .replaceAll("»", '"')
         .replaceAll(" ", ' ')
         .replaceAll("•", '.');
-    if (!isKanji) {
+    //if (!isKanji) {
       return latin1.encode(text);
-    } else {
+    /*} else {
       return Uint8List.fromList(gbk_bytes.encode(text));
-    }
+    }*/
   }
 
   List _getLexemes(String text) {
